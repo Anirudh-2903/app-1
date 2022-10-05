@@ -1,28 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
-import {hello , bye } from './components/hello'
+import {  Hellow , Byew } from './components/hello'
+import { useState , useEffect } from 'react'
 
 function App() {
+
+  const [counter,setCounter] = useState(0);
+
+  const increment =() =>{
+    setCounter(counter+1)
+  }
+
+  console.log(counter)
+  useEffect(()=>{
+    document.title = `clicked ${counter} times`
+  })
+
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
       <h1>Hello World</h1>
       <p>Anirudh Das is learning React</p>
-      <hello text="Hi everyone ,how are you ?" />
-      <bye text="Goodbye,have a nice day!!" />
+      <Hellow text="Hi everyone ,how are you ?"/>
+      <Byew text="Goodbye,have a nice day!!"/>
+      <button onClick={increment}>Click Me!</button>
+      <h1>{counter}</h1>
     </div>
   );
 }
